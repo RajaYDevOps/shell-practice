@@ -12,3 +12,5 @@ end_time=$(date +%s)
 total_time=$(($end_time-$start_time))
 
 echo "total time taken is $total_time seconds"
+
+echo "All variables passed to this script: $@"
