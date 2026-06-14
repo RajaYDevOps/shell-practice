@@ -20,3 +20,4 @@ echo "$2: Hey $1, we are also serious"
 
 echo "All variables passed to this script: $@"
 echo "Number of variables passed: $#"
+echo "First variable: $1"
