@@ -22,7 +22,7 @@ fi
 #echo "I am continuing...."
 dnf list installed mysql &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
-  echo "already installed.....Skipping"
+  echo "MySQL already installed.....Skipping"
 else 
   echo "Installing mySQL"
   dnf install mysql -y &>> $LOGS_FILE
@@ -30,7 +30,7 @@ else
 fi
 dnf list installed nginx &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
-  echo "already installed.....Skipping"
+  echo "nginx already installed.....Skipping"
 else 
   echo "Installing nginx"
   dnf install nginx -y &>> $LOGS_FILE
