@@ -14,7 +14,7 @@
 NUMBER1=$1
 NUMBER2=$2
 
-if [ $NUMBER1 -gt $NUMBER ]; then
+if [ $NUMBER1 -gt $NUMBER2 ]; then
     echo "given number $NUMBER is greater than 20"
 elif [ $NUMBER1 -eq NUMBER2 ]; then
     echo "given number $NUMBER is equal to 20"
