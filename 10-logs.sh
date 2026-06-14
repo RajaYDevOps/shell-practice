@@ -1,8 +1,8 @@
 #!/bin/bash
 
 USER_ID=$(id -u)
-LOGS_DIR=/home/ec2-user/shell-logs
-LOGS_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/10-logs.sh.log
+LOGS_DIR=/root/shell-logs
+LOGS_FILE="$LOGS_DIR/$0.log" # /root/shell-logs/10-logs.sh.log
 #check root access or not
 if [ $USER_ID -ne 0 ]; then
   echo "please run the script with root access"
