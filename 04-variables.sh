@@ -9,3 +9,6 @@ echo "Please enter your password"
 read -s Password
 
 echo "Password is: $Password"
+
+echo "All variables passed to this script: $@"
+echo "Number of variables passed: $#"
