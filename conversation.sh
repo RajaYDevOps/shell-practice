@@ -15,5 +15,8 @@ PERSON2=$2
 
 echo "$1: Hey $2 ,we are going to blast you!"
 echo "$2: Yes,please.You are welcome"
-echo "$1: Hey $PERSON2, i am serious"
-echo "$2: Hey $PERSON1, we are also serious"
+echo "$1: Hey $2, i am serious"
+echo "$2: Hey $1, we are also serious"
+
+echo "All variables passed to this script: $@"
+echo "Number of variables passed: $#"
