@@ -11,8 +11,13 @@ fi
 #echo "I am continuing...."
 
 echo "Installing mySQL"
-dnf install mysqlaadsg -y
-#if[ $? -ne 0 ]; then
+dnf install mysql -y
+if [ $? -ne 0 ]; then
+ echo "installing mysql is....FAILED"
+ exit 1
+fi
+else
+ echo "installing mysql is....SUCCESS"
 
-echo "I am continuing...."
-echo "I am still continuing"
+# echo "I am continuing...."
+# echo "I am still continuing"
