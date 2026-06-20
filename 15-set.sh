@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 USER_ID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log" # /root/shell-logs/10-logs.sh.log
