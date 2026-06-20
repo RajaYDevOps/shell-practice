@@ -19,7 +19,7 @@ VALIDATE(){
    echo "$TIMESTAMP[ERROR] installing $1 is....FAILED"
    exit 1
   else
-   echo "$TIMESTAMP[INFO] installing $1 is....SUCCESS"
+   echo "$TIMESTAMP[INFO] installing $1 is....SUCCESS" | tee -a $LOGS_FILE
 fi
 }
 
@@ -28,9 +28,9 @@ do
   #echo "Installing $package"
   dnf list installed $package &>> $LOGS_FILE
    if [ $? -eq 0 ]; then
-    echo "$TIMESTAMP[INFO] $package already installed.....Skipping"
+    echo "$TIMESTAMP[INFO] $package already installed.....Skipping" | tee -a $LOGS_FILE
    else
-   echo "$TIMESTAMP[INFO] Installing $package"
+   echo "$TIMESTAMP[INFO] Installing $package" | tee -a $LOGS_FILE
    dnf install $package -y &>> $LOGS_FILE
    VALIDATE $package $?
    fi
