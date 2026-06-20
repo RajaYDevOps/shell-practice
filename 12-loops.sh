@@ -25,7 +25,7 @@ for package in $@
 do
   echo "Installing $package"
   dnf list installed $package &>> $LOGS_FILE
-   if [ $? -eq 0]; then
+   if [ $? -eq 0 ]; then
     echo "MySQL already installed.....Skipping"
    else
    #echo "Installing $package"
