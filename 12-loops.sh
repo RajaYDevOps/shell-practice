@@ -23,7 +23,7 @@ fi
 
 for package in $@
 do
-  echo "Installing $package"
+  #echo "Installing $package"
   dnf list installed $package &>> $LOGS_FILE
    if [ $? -eq 0 ]; then
     echo "MySQL already installed.....Skipping"
