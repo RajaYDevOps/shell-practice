@@ -4,6 +4,8 @@
 USER_ID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log" # /root/shell-logs/10-logs.sh.log
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
 #check root access or not
 if [ $USER_ID -ne 0 ]; then
   echo "please run the script with root access"
@@ -14,10 +16,10 @@ fi
 # second arg-->exit code
 VALIDATE(){
   if [ $2 -ne 0 ]; then
-   echo "installing $1 is....FAILED"
+   echo "$TIMESTAMP[ERROR] installing $1 is....FAILED"
    exit 1
   else
-   echo "installing $1 is....SUCCESS"
+   echo "$TIMESTAMP[INFO] installing $1 is....SUCCESS"
 fi
 }
 
@@ -26,9 +28,9 @@ do
   #echo "Installing $package"
   dnf list installed $package &>> $LOGS_FILE
    if [ $? -eq 0 ]; then
-    echo "MySQL already installed.....Skipping"
+    echo "$TIMESTAMP[INFO] $package already installed.....Skipping"
    else
-   #echo "Installing $package"
+   echo "$TIMESTAMP[INFO] Installing $package"
    dnf install $package -y &>> $LOGS_FILE
    VALIDATE $package $?
    fi
