@@ -4,6 +4,10 @@ USER_ID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log" # /root/shell-logs/10-logs.sh.log
 TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 #check root access or not
 if [ $USER_ID -ne 0 ]; then
@@ -15,10 +19,10 @@ fi
 # second arg-->exit code
 VALIDATE(){
   if [ $2 -ne 0 ]; then
-   echo "$TIMESTAMP[ERROR] installing $1 is....FAILED"
+   echo "$TIMESTAMP[ERROR] installing $1 is....$R FAILED $N"
    exit 1
   else
-   echo "$TIMESTAMP[INFO] installing $1 is....SUCCESS" | tee -a $LOGS_FILE
+   echo "$TIMESTAMP[INFO] installing $1 is....$G SUCCESS $N" | tee -a $LOGS_FILE
 fi
 }
 
@@ -27,11 +31,10 @@ do
   #echo "Installing $package"
   dnf list installed $package &>> $LOGS_FILE
    if [ $? -eq 0 ]; then
-    echo "$TIMESTAMP[INFO] $package already installed.....Skipping" | tee -a $LOGS_FILE
+    echo -e "$TIMESTAMP[INFO] $package already installed.....$Y Skipping $N " | tee -a $LOGS_FILE
    else
    echo "$TIMESTAMP[INFO] Installing $package" | tee -a $LOGS_FILE
    dnf install $package -y &>> $LOGS_FILE
    VALIDATE $package $?
    fi
 done
-
