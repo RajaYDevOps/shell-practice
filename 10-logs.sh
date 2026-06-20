@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
   echo "MySQL already installed.....Skipping" | tee -a $LOGS_FILE
 else 
   echo "Installing mySQL"
-  dnf install mysql -y &>> $LOGS_FILE
+  dnf install mysql -y &>> $LOGS_FILE | tee -a $LOGS_FILE
   VALIDATE MySQL $?
 fi
 dnf list installed nginx &>> $LOGS_FILE
@@ -33,7 +33,7 @@ if [ $? -eq 0 ]; then
   echo "nginx already installed.....Skipping" | tee -a $LOGS_FILE
 else 
   echo "Installing nginx"
-  dnf install nginx -y &>> $LOGS_FILE
+  dnf install nginx -y &>> $LOGS_FILE | tee -a $LOGS_FILE
   VALIDATE nginx $?
 fi
 
