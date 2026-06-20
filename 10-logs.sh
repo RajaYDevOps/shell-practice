@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER_ID=$(id -u)
-LOGS_DIR=/root/var/log/shell-script
+LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log" # /root/shell-logs/10-logs.sh.log
 #check root access or not
 if [ $USER_ID -ne 0 ]; then
@@ -24,16 +24,16 @@ dnf list installed mysql &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
   echo "MySQL already installed.....Skipping" | tee -a $LOGS_FILE
 else 
-  echo "Installing mySQL"
-  dnf install mysql -y &>> $LOGS_FILE | tee -a $LOGS_FILE
+  echo "Installing mySQL" | tee -a $LOGS_FILE
+  dnf install mysql -y &>> $LOGS_FILE
   VALIDATE MySQL $?
 fi
 dnf list installed nginx &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
   echo "nginx already installed.....Skipping" | tee -a $LOGS_FILE
 else 
-  echo "Installing nginx"
-  dnf install nginx -y &>> $LOGS_FILE | tee -a $LOGS_FILE
+  echo "Installing nginx" | tee -a $LOGS_FILE
+  dnf install nginx -y &>> $LOGS_FILE
   VALIDATE nginx $?
 fi
 
