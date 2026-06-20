@@ -1,7 +1,7 @@
 !#/bin/bash
 
 # TIMESTAMP=$(date)
-# echo "Time is $TIMESTAMP"
+echo "Time is $TIMESTAMP"
 
 start_time=$(date +%s)
 
