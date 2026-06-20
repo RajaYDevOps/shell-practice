@@ -30,7 +30,7 @@ do
    else
    #echo "Installing $package"
    dnf install $package -y &>> $LOGS_FILE
-   VALIDATE "Installing $package" $?
+   VALIDATE $package $?
    fi
 done
 
